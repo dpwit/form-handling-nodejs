@@ -2,17 +2,19 @@
 html
     head
         link(rel='stylesheet', href= 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css')
+
     body
         .section
             .containers
                 .container
-                    form(method='POST', action='/submit')
+                    form(name='myForm', method='POST', action='/submit')
 
                         .field
                             label.label Username
                             .control
-                                input.input(name='username', type='text', placeholder='Username' required)
-                            p.help Be original!
+                                input.input(id='username' name='username', type='text', placeholder='Username' required oninvalid="this.setCustomValidity('Please enter a Username here')"
+                                    oninput="this.setCustomValidity('')")
+                            p.help Create yourself a username
 
                         //.field
                             label.label Password
@@ -23,8 +25,10 @@ html
                         .field
                             label.label Email address
                             .control
-                                input.input(name='email', type='email', placeholder='Email address' required)
-                            p.help Make it secure!
+                                input.input(name='email', type='email', placeholder='Email address' required oninvalid="this.setCustomValidity('Please enter a valid email address here')"
+                                    oninput="this.setCustomValidity('')")
+                            p.help Enter a valid email address
 
                         .control
                             button.button.is-primary Submit
+
