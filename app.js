@@ -15,5 +15,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.post('/submit', (req, res) => {
     console.log('Username:' + req.body.username)
     console.log('Password:' + req.body.password)
+    console.log('Email address:' + req.body.email)
     res.redirect('/')
 })
